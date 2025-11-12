@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("#contact form");
+  const form = document.querySelector("#Contact form");
   const menuToggle = document.getElementById("menuToggle");
   const nav = document.querySelector("nav");
   const homeSection = document.getElementById("home");
