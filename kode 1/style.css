@@ -62,7 +62,8 @@ header li a:active {
 #home,
 #about,
 #Contact,
-#ipk {
+#ipk
+#daftar {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
@@ -74,7 +75,8 @@ header li a:active {
 #home h2,
 #about h2,
 #Contact h2,
-#ipk h2 {
+#ipk h2
+#daftar h2 {
   color: #003366;
   border-bottom: 2px solid #003366;
   padding-bottom: 6px;
