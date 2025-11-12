@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: #2a9d8f;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+#menuToggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #e9c46a;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+section h2 {
+  color: #264653;
+  margin-bottom: 15px;
+}
+
+#about p {
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+label span {
+  width: 180px;
+  font-weight: bold;
+  color: #264653;
+  text-align: right;
+  margin-right: 10px;
+}
+
+input, textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#charCount {
+  font-size: 14px;
+  color: #555;
+  text-align: right;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  background: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #21867a;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #264653;
+  color: white;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  #menuToggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    background: #2a9d8f;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    display: none;
+    padding: 15px;
+  }
+
+  nav.active ul {
+    display: flex;
+  }
+
+  label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  label span {
+    width: auto;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+}
