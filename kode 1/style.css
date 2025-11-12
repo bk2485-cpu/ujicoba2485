@@ -10,6 +10,7 @@ body {
   line-height: 1.5;
 }
 
+/* HEADER */
 header {
   background: #003366;
   color: #fff;
@@ -59,10 +60,12 @@ header li a:active {
   transform: translateY(1px);
 }
 
+/* SECTION DASAR */
 #home,
 #about,
 #Contact,
-#ipk {
+#ipk,
+#daftar {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
@@ -74,7 +77,8 @@ header li a:active {
 #home h2,
 #about h2,
 #Contact h2,
-#ipk h2 {
+#ipk h2,
+#daftar h2 {
   color: #003366;
   border-bottom: 2px solid #003366;
   padding-bottom: 6px;
@@ -83,19 +87,84 @@ header li a:active {
   font-size: 22px;
 }
 
-#home p {
-  text-align: justify;
+/* FORM PENDAFTARAN PROFIL */
+#daftar form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-footer {
-  background: #222;
-  color: #aaa;
-  text-align: center;
-  padding: 14px 10px;
-  font-size: 14px;
-  margin-top: 30px;
+#daftar label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 8px;
 }
 
+#daftar label span {
+  min-width: 180px;
+  color: #003366;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 16px;
+  flex-shrink: 0;
+}
+
+#daftar input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  color: #000;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#daftar input:focus {
+  border-color: #003366;
+  box-shadow: 0 0 4px rgba(0, 51, 102, 0.3);
+  outline: none;
+  background-color: #fff;
+}
+
+#daftar button {
+  margin-top: 12px;
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+}
+
+#daftar button[type="submit"] {
+  background-color: #003366;
+  color: #fff;
+  font-weight: 600;
+}
+
+#daftar button[type="reset"] {
+  background-color: #b4b4b4;
+  color: #272727;
+  font-weight: 500;
+}
+
+#daftar button[type="submit"]:hover {
+  background-color: #0379ee;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#daftar button[type="reset"]:hover {
+  background-color: #cccccc;
+  transform: translateY(-1px);
+}
+
+/* ABOUT DAN CONTACT */
 #about p,
 #Contact label {
   display: flex;
@@ -171,15 +240,7 @@ footer {
   transform: translateY(-1px);
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-}
-
+/* IPK */
 #ipk .matkul div,
 #ipk .total div {
   display: flex;
@@ -219,6 +280,26 @@ footer {
 #ipk .total .value {
   font-weight: bold;
   color: #000;
+}
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 14px 10px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+/* RESPONSIVE */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
@@ -262,6 +343,7 @@ footer {
     backdrop-filter: saturate(120%);
   }
 
+  #daftar label,
   #about p,
   #Contact label,
   #ipk .matkul div,
@@ -270,6 +352,7 @@ footer {
     align-items: flex-start;
   }
 
+  #daftar label span,
   #about strong,
   #Contact label > span,
   #ipk .label {
@@ -278,8 +361,10 @@ footer {
     margin-bottom: 4px;
   }
 
+  #daftar input,
   #Contact input,
   #Contact textarea,
+  #daftar button,
   #Contact button {
     width: 100%;
   }
