@@ -16,7 +16,6 @@
         <nav>
             <ul>
                 <li><a href="#home">Beranda</a></li>
-                <li><a href="#daftarProfil">Pendaftaran Profil</a></li>
                 <li><a href="#about">Tentang</a></li>
                 <li><a href="#ipk">IPK</a></li>
                 <li><a href="#Contact">Kontak</a></li>
@@ -26,7 +25,6 @@
 
     <main>
 
-        <!-- ==================== SECTION HOME ==================== -->
         <section id="home">
             <h2>Selamat datang</h2>
             <p>Ini contoh paragraf HTML.</p>
@@ -36,10 +34,9 @@
             ?>
         </section>
 
-        <!-- ==================== SECTION PENDAFTARAN PROFIL ==================== -->
-        <section id="daftarProfil">
+        <section id="formProfil">
             <h2>Pendaftaran Profil Pengunjung</h2>
-            <form action="proses_profil.php" method="POST">
+            <form action="" method="POST">
                 <label for="nim"><span>NIM:</span>
                     <input type="text" id="nim" name="nim" required>
                 </label>
@@ -61,35 +58,33 @@
                 </label>
 
                 <label for="pasangan"><span>Pasangan:</span>
-                    <input type="text" id="pasangan" name="pasangan" required>
+                    <input type="text" id="pasangan" name="pasangan">
                 </label>
 
                 <label for="pekerjaan"><span>Pekerjaan:</span>
-                    <input type="text" id="pekerjaan" name="pekerjaan" required>
+                    <input type="text" id="pekerjaan" name="pekerjaan">
                 </label>
 
                 <label for="ortu"><span>Nama Orang Tua:</span>
-                    <input type="text" id="ortu" name="ortu" required>
+                    <input type="text" id="ortu" name="ortu">
                 </label>
 
                 <label for="kakak"><span>Nama Kakak:</span>
-                    <input type="text" id="kakak" name="kakak" required>
+                    <input type="text" id="kakak" name="kakak">
                 </label>
 
                 <label for="adik"><span>Nama Adik:</span>
-                    <input type="text" id="adik" name="adik" required>
+                    <input type="text" id="adik" name="adik">
                 </label>
 
-                <button type="submit">Kirim</button>
+                <button type="submit" name="kirimProfil">Kirim</button>
                 <button type="reset">Batal</button>
             </form>
         </section>
-        <!-- ==================== END PENDAFTARAN PROFIL ==================== -->
 
-        <!-- ==================== SECTION ABOUT ==================== -->
         <section id="about">
             <?php
-            // Jika data dikirim dari form, gunakan POST
+            // Ambil data dari POST jika form dikirim
             $NIM = $_POST['nim'] ?? "2511500081";
             $Nama_Lengkap = $_POST['nama'] ?? "Arief Budikurniawan &#128526;";
             $Tempat_Lahir = $_POST['tempat'] ?? "Tangerang";
@@ -103,6 +98,7 @@
             ?>
 
             <h2>Tentang Saya</h2>
+
             <p><strong>NIM:</strong> <?= htmlspecialchars($NIM) ?></p>
             <p><strong>Nama Lengkap:</strong> <?= htmlspecialchars($Nama_Lengkap) ?></p>
             <p><strong>Tempat Lahir:</strong> <?= htmlspecialchars($Tempat_Lahir) ?></p>
@@ -114,10 +110,10 @@
             <p><strong>Nama Kakak:</strong> <?= htmlspecialchars($Nama_Kakak) ?></p>
             <p><strong>Nama Adik:</strong> <?= htmlspecialchars($Nama_Adik) ?></p>
         </section>
-        <!-- ==================== END ABOUT ==================== -->
 
-        <!-- ==================== SECTION IPK & CONTACT (DARI KODE ASLI) ==================== -->
+
         <section id="ipk">
+
             <?php
             $namaMatkul1 = "Algoritma dan Struktur Data";
             $sksMatkul1 = 4;
@@ -189,23 +185,34 @@
             function tentukanMutu($grade)
             {
                 switch ($grade) {
-                    case "A": return 4.00;
-                    case "A-": return 3.70;
-                    case "B+": return 3.30;
-                    case "B": return 3.00;
-                    case "B-": return 2.70;
-                    case "C+": return 2.30;
-                    case "C": return 2.00;
-                    case "C-": return 1.70;
-                    case "D": return 1.00;
-                    case "E": return 0.00;
-                    default: return 0.00;
+                    case "A":
+                        return 4.00;
+                    case "A-":
+                        return 3.70;
+                    case "B+":
+                        return 3.30;
+                    case "B":
+                        return 3.00;
+                    case "B-":
+                        return 2.70;
+                    case "C+":
+                        return 2.30;
+                    case "C":
+                        return 2.00;
+                    case "C-":
+                        return 1.70;
+                    case "D":
+                        return 1.00;
+                    case "E":
+                        return 0.00;
+                    default:
+                        return 0.00;
                 }
             }
 
             function tentukanStatus($grade)
             {
-                return in_array($grade, ["A","A-","B+","B","B-","C+","C","C-"]) ? "Lulus" : "Gagal";
+                return in_array($grade, ["A", "A-", "B+", "B", "B-", "C+", "C", "C-"]) ? "Lulus" : "Gagal";
             }
 
             for ($i = 1; $i <= 5; $i++) {
@@ -228,25 +235,32 @@
             ?>
 
             <h2>Nilai Saya</h2>
+
             <?php for ($i = 1; $i <= 5; $i++): ?>
                 <div class="matkul">
-                    <div><span class="label">Nama Matakuliah ke-<?= $i ?> :</span> <span class="value"><?= ${"namaMatkul$i"} ?></span></div>
+                    <br>
+                    <div><span class="label">Nama Matakuliah ke-<?= $i ?> :</span> <span
+                            class="value"><?= ${"namaMatkul$i"} ?></span></div>
                     <div><span class="label">SKS :</span> <span class="value"><?= ${"sksMatkul$i"} ?></span></div>
                     <div><span class="label">Kehadiran :</span> <span class="value"><?= ${"nilaiHadir$i"} ?></span></div>
                     <div><span class="label">Tugas :</span> <span class="value"><?= ${"nilaiTugas$i"} ?></span></div>
                     <div><span class="label">UTS :</span> <span class="value"><?= ${"nilaiUTS$i"} ?></span></div>
                     <div><span class="label">UAS :</span> <span class="value"><?= ${"nilaiUAS$i"} ?></span></div>
-                    <div><span class="label">Nilai Akhir :</span> <span class="value"><?= number_format(${"nilaiAkhir$i"}, 2) ?></span></div>
+                    <div><span class="label">Nilai Akhir :</span> <span
+                            class="value"><?= number_format(${"nilaiAkhir$i"}, 2) ?></span></div>
                     <div><span class="label">Grade :</span> <span class="value"><?= ${"grade$i"} ?></span></div>
-                    <div><span class="label">Angka Mutu :</span> <span class="value"><?= number_format(${"mutu$i"}, 2) ?></span></div>
-                    <div><span class="label">Bobot :</span> <span class="value"><?= number_format(${"bobot$i"}, 2) ?></span></div>
+                    <div><span class="label">Angka Mutu :</span> <span
+                            class="value"><?= number_format(${"mutu$i"}, 2) ?></span></div>
+                    <div><span class="label">Bobot :</span> <span class="value"><?= number_format(${"bobot$i"}, 2) ?></span>
+                    </div>
                     <div><span class="label">Status :</span> <span class="value"><?= ${"status$i"} ?></span></div>
                     <br>
                 </div>
             <?php endfor; ?>
 
             <div class="total">
-                <div><span class="label">Total Bobot :</span> <span class="value"><?= number_format($totalBobot, 2) ?></span></div>
+                <div><span class="label">Total Bobot :</span> <span
+                        class="value"><?= number_format($totalBobot, 2) ?></span></div>
                 <div><span class="label">Total SKS :</span> <span class="value"><?= $totalSKS ?></span></div>
                 <div><span class="label">IPK :</span> <span class="value"><?= number_format($IPK, 2) ?></span></div>
             </div>
@@ -272,7 +286,6 @@
                 <button type="reset">Batal</button>
             </form>
         </section>
-        <!-- ==================== END CONTACT ==================== -->
 
     </main>
 
