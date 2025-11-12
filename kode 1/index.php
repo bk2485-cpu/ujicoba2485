@@ -84,32 +84,42 @@
 
         <section id="about">
             <?php
-            // Ambil data dari POST jika form dikirim
+
             $NIM = $_POST['nim'] ?? "2511500081";
-            $Nama_Lengkap = $_POST['nama'] ?? "Arief Budikurniawan &#128526;";
+            $Nama_Lengkap = $_POST['nama'] ?? html_entity_decode("Arief Budikurniawan &#128526;");
             $Tempat_Lahir = $_POST['tempat'] ?? "Tangerang";
-            $Tanggal_Lahir = $_POST['tanggal'] ?? "24 Agustus 2005";
-            $Hobi = $_POST['hobi'] ?? "Mancing, Billiard &#127921;, Mobile Legend &#127918;";
+            $Tanggal_Lahir = $_POST['tanggal'] ?? "2005-08-24";
+            $Hobi = $_POST['hobi'] ?? html_entity_decode("Mancing, Billiard &#127921;, Mobile Legend &#127918;");
             $Pasangan = $_POST['pasangan'] ?? "Gatau ada dimana";
             $Pekerjaan = $_POST['pekerjaan'] ?? "Mahasiswa &copy; 2025";
             $Nama_Orang_Tua = $_POST['ortu'] ?? "Bapak Budi Karyanto dan Ibu Dahlia";
             $Nama_Kakak = $_POST['kakak'] ?? "Ananda Rizky Faudillah";
             $Nama_Adik = $_POST['adik'] ?? "Annisa Tri Muthiazzahra";
+
+            function tampil($value)
+            {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    return htmlspecialchars($value);
+                } else {
+                    return $value;
+                }
+            }
             ?>
 
             <h2>Tentang Saya</h2>
 
-            <p><strong>NIM:</strong> <?= htmlspecialchars($NIM) ?></p>
-            <p><strong>Nama Lengkap:</strong> <?= htmlspecialchars($Nama_Lengkap) ?></p>
-            <p><strong>Tempat Lahir:</strong> <?= htmlspecialchars($Tempat_Lahir) ?></p>
-            <p><strong>Tanggal Lahir:</strong> <?= htmlspecialchars($Tanggal_Lahir) ?></p>
-            <p><strong>Hobi:</strong> <?= htmlspecialchars($Hobi) ?></p>
-            <p><strong>Pasangan:</strong> <?= htmlspecialchars($Pasangan) ?></p>
-            <p><strong>Pekerjaan:</strong> <?= htmlspecialchars($Pekerjaan) ?></p>
-            <p><strong>Nama Orang Tua:</strong> <?= htmlspecialchars($Nama_Orang_Tua) ?></p>
-            <p><strong>Nama Kakak:</strong> <?= htmlspecialchars($Nama_Kakak) ?></p>
-            <p><strong>Nama Adik:</strong> <?= htmlspecialchars($Nama_Adik) ?></p>
+            <p><strong>NIM:</strong> <?= tampil($NIM) ?></p>
+            <p><strong>Nama Lengkap:</strong> <?= tampil($Nama_Lengkap) ?></p>
+            <p><strong>Tempat Lahir:</strong> <?= tampil($Tempat_Lahir) ?></p>
+            <p><strong>Tanggal Lahir:</strong> <?= tampil($Tanggal_Lahir) ?></p>
+            <p><strong>Hobi:</strong> <?= tampil($Hobi) ?></p>
+            <p><strong>Pasangan:</strong> <?= tampil($Pasangan) ?></p>
+            <p><strong>Pekerjaan:</strong> <?= tampil($Pekerjaan) ?></p>
+            <p><strong>Nama Orang Tua:</strong> <?= tampil($Nama_Orang_Tua) ?></p>
+            <p><strong>Nama Kakak:</strong> <?= tampil($Nama_Kakak) ?></p>
+            <p><strong>Nama Adik:</strong> <?= tampil($Nama_Adik) ?></p>
         </section>
+
 
 
         <section id="ipk">
