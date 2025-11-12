@@ -1,125 +1,287 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halaman Profil</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Arief</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h1>Profil Saya</h1>
-    <button id="menuToggle">&#9776;</button>
-    <nav>
-      <ul>
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#formProfil">Pendaftaran</a></li>
-        <li><a href="#about">Tentang Saya</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section id="home">
-    <h2>Beranda</h2>
-    <p>Selamat datang di halaman profil saya.</p>
-  </section>
+    <header>
+        <h1>Ini Header</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#daftarProfil">Pendaftaran Profil</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#ipk">IPK</a></li>
+                <li><a href="#Contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Section baru: Pendaftaran Profil Pengunjung -->
-  <section id="formProfil">
-    <h2>Pendaftaran Profil Pengunjung</h2>
-    <form action="proses_profil.php" method="post">
-      <label for="nim">
-        <span>NIM:</span>
-        <input type="text" id="nim" name="nim" placeholder="Masukkan NIM Anda" required />
-      </label>
+    <main>
 
-      <label for="namaLengkap">
-        <span>Nama Lengkap:</span>
-        <input type="text" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap Anda" required />
-      </label>
+        <!-- ==================== SECTION HOME ==================== -->
+        <section id="home">
+            <h2>Selamat datang</h2>
+            <p>Ini contoh paragraf HTML.</p>
+            <?php
+            echo "Hello, World!<br>";
+            echo "Nama saya Arief";
+            ?>
+        </section>
 
-      <label for="tempatLahir">
-        <span>Tempat Lahir:</span>
-        <input type="text" id="tempatLahir" name="tempatLahir" placeholder="Masukkan tempat lahir Anda" required />
-      </label>
+        <!-- ==================== SECTION PENDAFTARAN PROFIL ==================== -->
+        <section id="daftarProfil">
+            <h2>Pendaftaran Profil Pengunjung</h2>
+            <form action="proses_profil.php" method="POST">
+                <label for="nim"><span>NIM:</span>
+                    <input type="text" id="nim" name="nim" required>
+                </label>
 
-      <label for="tanggalLahir">
-        <span>Tanggal Lahir:</span>
-        <input type="date" id="tanggalLahir" name="tanggalLahir" required />
-      </label>
+                <label for="nama"><span>Nama Lengkap:</span>
+                    <input type="text" id="nama" name="nama" required>
+                </label>
 
-      <label for="hobi">
-        <span>Hobi:</span>
-        <input type="text" id="hobi" name="hobi" placeholder="Masukkan hobi Anda" />
-      </label>
+                <label for="tempat"><span>Tempat Lahir:</span>
+                    <input type="text" id="tempat" name="tempat" required>
+                </label>
 
-      <label for="pasangan">
-        <span>Pasangan:</span>
-        <input type="text" id="pasangan" name="pasangan" placeholder="Masukkan nama pasangan (jika ada)" />
-      </label>
+                <label for="tanggal"><span>Tanggal Lahir:</span>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </label>
 
-      <label for="pekerjaan">
-        <span>Pekerjaan:</span>
-        <input type="text" id="pekerjaan" name="pekerjaan" placeholder="Masukkan pekerjaan Anda" />
-      </label>
+                <label for="hobi"><span>Hobi:</span>
+                    <input type="text" id="hobi" name="hobi" required>
+                </label>
 
-      <label for="ortu">
-        <span>Nama Orang Tua:</span>
-        <input type="text" id="ortu" name="ortu" placeholder="Masukkan nama orang tua" />
-      </label>
+                <label for="pasangan"><span>Pasangan:</span>
+                    <input type="text" id="pasangan" name="pasangan" required>
+                </label>
 
-      <label for="kakak">
-        <span>Nama Kakak:</span>
-        <input type="text" id="kakak" name="kakak" placeholder="Masukkan nama kakak" />
-      </label>
+                <label for="pekerjaan"><span>Pekerjaan:</span>
+                    <input type="text" id="pekerjaan" name="pekerjaan" required>
+                </label>
 
-      <label for="adik">
-        <span>Nama Adik:</span>
-        <input type="text" id="adik" name="adik" placeholder="Masukkan nama adik" />
-      </label>
+                <label for="ortu"><span>Nama Orang Tua:</span>
+                    <input type="text" id="ortu" name="ortu" required>
+                </label>
 
-      <div class="button-group">
-        <button type="submit">Kirim</button>
-        <button type="reset">Batal</button>
-      </div>
-    </form>
-  </section>
-  <!-- Akhir section baru -->
+                <label for="kakak"><span>Nama Kakak:</span>
+                    <input type="text" id="kakak" name="kakak" required>
+                </label>
 
-  <section id="about">
-    <h2>Tentang Saya</h2>
-    <p>Saya adalah seseorang yang gemar belajar teknologi dan berbagi pengetahuan.</p>
-    <p>Halaman ini berisi informasi singkat serta form untuk menghubungi saya.</p>
-  </section>
+                <label for="adik"><span>Nama Adik:</span>
+                    <input type="text" id="adik" name="adik" required>
+                </label>
 
-  <section id="contact">
-    <h2>Kontak Saya</h2>
-    <form action="#" method="post">
-      <label for="txtNama">
-        <span>Nama:</span>
-        <input type="text" id="txtNama" name="nama" placeholder="Masukkan nama Anda" />
-      </label>
+                <button type="submit">Kirim</button>
+                <button type="reset">Batal</button>
+            </form>
+        </section>
+        <!-- ==================== END PENDAFTARAN PROFIL ==================== -->
 
-      <label for="txtEmail">
-        <span>Email:</span>
-        <input type="email" id="txtEmail" name="email" placeholder="nama@mail.com" />
-      </label>
+        <!-- ==================== SECTION ABOUT ==================== -->
+        <section id="about">
+            <?php
+            // Jika data dikirim dari form, gunakan POST
+            $NIM = $_POST['nim'] ?? "2511500081";
+            $Nama_Lengkap = $_POST['nama'] ?? "Arief Budikurniawan &#128526;";
+            $Tempat_Lahir = $_POST['tempat'] ?? "Tangerang";
+            $Tanggal_Lahir = $_POST['tanggal'] ?? "24 Agustus 2005";
+            $Hobi = $_POST['hobi'] ?? "Mancing, Billiard &#127921;, Mobile Legend &#127918;";
+            $Pasangan = $_POST['pasangan'] ?? "Gatau ada dimana";
+            $Pekerjaan = $_POST['pekerjaan'] ?? "Mahasiswa &copy; 2025";
+            $Nama_Orang_Tua = $_POST['ortu'] ?? "Bapak Budi Karyanto dan Ibu Dahlia";
+            $Nama_Kakak = $_POST['kakak'] ?? "Ananda Rizky Faudillah";
+            $Nama_Adik = $_POST['adik'] ?? "Annisa Tri Muthiazzahra";
+            ?>
 
-      <label for="txtPesan">
-        <span>Pesan:</span>
-        <textarea id="txtPesan" name="pesan" maxlength="200" placeholder="Tulis pesan Anda..."></textarea>
-        <div id="charCount">0/200 karakter</div>
-      </label>
+            <h2>Tentang Saya</h2>
+            <p><strong>NIM:</strong> <?= htmlspecialchars($NIM) ?></p>
+            <p><strong>Nama Lengkap:</strong> <?= htmlspecialchars($Nama_Lengkap) ?></p>
+            <p><strong>Tempat Lahir:</strong> <?= htmlspecialchars($Tempat_Lahir) ?></p>
+            <p><strong>Tanggal Lahir:</strong> <?= htmlspecialchars($Tanggal_Lahir) ?></p>
+            <p><strong>Hobi:</strong> <?= htmlspecialchars($Hobi) ?></p>
+            <p><strong>Pasangan:</strong> <?= htmlspecialchars($Pasangan) ?></p>
+            <p><strong>Pekerjaan:</strong> <?= htmlspecialchars($Pekerjaan) ?></p>
+            <p><strong>Nama Orang Tua:</strong> <?= htmlspecialchars($Nama_Orang_Tua) ?></p>
+            <p><strong>Nama Kakak:</strong> <?= htmlspecialchars($Nama_Kakak) ?></p>
+            <p><strong>Nama Adik:</strong> <?= htmlspecialchars($Nama_Adik) ?></p>
+        </section>
+        <!-- ==================== END ABOUT ==================== -->
 
-      <button type="submit">Kirim Pesan</button>
-    </form>
-  </section>
+        <!-- ==================== SECTION IPK & CONTACT (DARI KODE ASLI) ==================== -->
+        <section id="ipk">
+            <?php
+            $namaMatkul1 = "Algoritma dan Struktur Data";
+            $sksMatkul1 = 4;
+            $nilaiHadir1 = 90;
+            $nilaiTugas1 = 60;
+            $nilaiUTS1 = 80;
+            $nilaiUAS1 = 70;
 
-  <footer>
-    <p>&copy; 2025 Profil Saya. Semua hak dilindungi.</p>
-  </footer>
+            $namaMatkul2 = "Agama";
+            $sksMatkul2 = 2;
+            $nilaiHadir2 = 70;
+            $nilaiTugas2 = 50;
+            $nilaiUTS2 = 60;
+            $nilaiUAS2 = 80;
 
-  <script src="script.js"></script>
+            $namaMatkul3 = "Matematika";
+            $sksMatkul3 = 4;
+            $nilaiHadir3 = 80;
+            $nilaiTugas3 = 70;
+            $nilaiUTS3 = 75;
+            $nilaiUAS3 = 80;
+
+            $namaMatkul4 = "Fisika";
+            $sksMatkul4 = 7;
+            $nilaiHadir4 = 85;
+            $nilaiTugas4 = 75;
+            $nilaiUTS4 = 80;
+            $nilaiUAS4 = 85;
+
+            $namaMatkul5 = "Pemrograman Web Dasar";
+            $sksMatkul5 = 3;
+            $nilaiHadir5 = 69;
+            $nilaiTugas5 = 80;
+            $nilaiUTS5 = 90;
+            $nilaiUAS5 = 100;
+
+            function hitungNilaiAkhir($hadir, $tugas, $uts, $uas)
+            {
+                return (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
+            }
+
+            function tentukanGrade($hadir, $nilaiAkhir)
+            {
+                if ($hadir < 70) {
+                    return "E";
+                } elseif ($nilaiAkhir >= 85) {
+                    return "A";
+                } elseif ($nilaiAkhir >= 80) {
+                    return "A-";
+                } elseif ($nilaiAkhir >= 75) {
+                    return "B+";
+                } elseif ($nilaiAkhir >= 70) {
+                    return "B";
+                } elseif ($nilaiAkhir >= 65) {
+                    return "B-";
+                } elseif ($nilaiAkhir >= 60) {
+                    return "C+";
+                } elseif ($nilaiAkhir >= 55) {
+                    return "C";
+                } elseif ($nilaiAkhir >= 50) {
+                    return "C-";
+                } elseif ($nilaiAkhir >= 45) {
+                    return "D";
+                } else {
+                    return "E";
+                }
+            }
+
+            function tentukanMutu($grade)
+            {
+                switch ($grade) {
+                    case "A": return 4.00;
+                    case "A-": return 3.70;
+                    case "B+": return 3.30;
+                    case "B": return 3.00;
+                    case "B-": return 2.70;
+                    case "C+": return 2.30;
+                    case "C": return 2.00;
+                    case "C-": return 1.70;
+                    case "D": return 1.00;
+                    case "E": return 0.00;
+                    default: return 0.00;
+                }
+            }
+
+            function tentukanStatus($grade)
+            {
+                return in_array($grade, ["A","A-","B+","B","B-","C+","C","C-"]) ? "Lulus" : "Gagal";
+            }
+
+            for ($i = 1; $i <= 5; $i++) {
+                $hadir = ${"nilaiHadir$i"};
+                $tugas = ${"nilaiTugas$i"};
+                $uts = ${"nilaiUTS$i"};
+                $uas = ${"nilaiUAS$i"};
+                $sks = ${"sksMatkul$i"};
+
+                ${"nilaiAkhir$i"} = hitungNilaiAkhir($hadir, $tugas, $uts, $uas);
+                ${"grade$i"} = tentukanGrade($hadir, ${"nilaiAkhir$i"});
+                ${"mutu$i"} = tentukanMutu(${"grade$i"});
+                ${"bobot$i"} = ${"mutu$i"} * $sks;
+                ${"status$i"} = tentukanStatus(${"grade$i"});
+            }
+
+            $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
+            $totalSKS = $sksMatkul1 + $sksMatkul2 + $sksMatkul3 + $sksMatkul4 + $sksMatkul5;
+            $IPK = $totalSKS > 0 ? $totalBobot / $totalSKS : 0;
+            ?>
+
+            <h2>Nilai Saya</h2>
+            <?php for ($i = 1; $i <= 5; $i++): ?>
+                <div class="matkul">
+                    <div><span class="label">Nama Matakuliah ke-<?= $i ?> :</span> <span class="value"><?= ${"namaMatkul$i"} ?></span></div>
+                    <div><span class="label">SKS :</span> <span class="value"><?= ${"sksMatkul$i"} ?></span></div>
+                    <div><span class="label">Kehadiran :</span> <span class="value"><?= ${"nilaiHadir$i"} ?></span></div>
+                    <div><span class="label">Tugas :</span> <span class="value"><?= ${"nilaiTugas$i"} ?></span></div>
+                    <div><span class="label">UTS :</span> <span class="value"><?= ${"nilaiUTS$i"} ?></span></div>
+                    <div><span class="label">UAS :</span> <span class="value"><?= ${"nilaiUAS$i"} ?></span></div>
+                    <div><span class="label">Nilai Akhir :</span> <span class="value"><?= number_format(${"nilaiAkhir$i"}, 2) ?></span></div>
+                    <div><span class="label">Grade :</span> <span class="value"><?= ${"grade$i"} ?></span></div>
+                    <div><span class="label">Angka Mutu :</span> <span class="value"><?= number_format(${"mutu$i"}, 2) ?></span></div>
+                    <div><span class="label">Bobot :</span> <span class="value"><?= number_format(${"bobot$i"}, 2) ?></span></div>
+                    <div><span class="label">Status :</span> <span class="value"><?= ${"status$i"} ?></span></div>
+                    <br>
+                </div>
+            <?php endfor; ?>
+
+            <div class="total">
+                <div><span class="label">Total Bobot :</span> <span class="value"><?= number_format($totalBobot, 2) ?></span></div>
+                <div><span class="label">Total SKS :</span> <span class="value"><?= $totalSKS ?></span></div>
+                <div><span class="label">IPK :</span> <span class="value"><?= number_format($IPK, 2) ?></span></div>
+            </div>
+        </section>
+
+        <section id="Contact">
+            <h2>Kontak Kami</h2>
+            <form method="GET">
+                <label for="txtNama"><span>Nama:</span>
+                    <input type="text" id="txtNama" name="txtNama" required>
+                </label>
+
+                <label for="txtEmail"><span>Email:</span>
+                    <input type="email" id="txtEmail" name="txtEmail" required>
+                </label>
+
+                <label for="txtPesan"><span>Pesan Anda:</span>
+                    <textarea id="txtPesan" name="txtPesan" rows="4" required></textarea>
+                    <small id="charCount">0/200 karakter</small>
+                </label>
+
+                <button type="submit">Kirim</button>
+                <button type="reset">Batal</button>
+            </form>
+        </section>
+        <!-- ==================== END CONTACT ==================== -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Arief Budikurniawan [2511500081]</p>
+    </footer>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
