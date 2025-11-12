@@ -88,7 +88,7 @@
             $NIM = $_POST['nim'] ?? "2511500081";
             $Nama_Lengkap = $_POST['nama'] ?? html_entity_decode("Arief Budikurniawan &#128526;");
             $Tempat_Lahir = $_POST['tempat'] ?? "Tangerang";
-            $Tanggal_Lahir = $_POST['tanggal'] ?? "2005-08-24";
+            $Tanggal_Lahir = $_POST['tanggal'] ?? "24-08-2005";
             $Hobi = $_POST['hobi'] ?? html_entity_decode("Mancing, Billiard &#127921;, Mobile Legend &#127918;");
             $Pasangan = $_POST['pasangan'] ?? "Gatau ada dimana";
             $Pekerjaan = $_POST['pekerjaan'] ?? "Mahasiswa &copy; 2025";
