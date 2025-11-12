@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menuToggle");
   const nav = document.querySelector("nav");
   const homeSection = document.getElementById("home");
-  const txtNama = document.getElementById("txtNama");
-  const txtEmail = document.getElementById("txtEmail");
   const txtPesan = document.getElementById("txtPesan");
   const charCount = document.getElementById("charCount");
 
@@ -23,36 +21,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (form) {
     form.addEventListener("submit", function (e) {
-      const nama = txtNama.value.trim();
-      const email = txtEmail.value.trim();
-      const pesan = txtPesan.value.trim();
+      const nama = document.getElementById("txtNama");
+      const email = document.getElementById("txtEmail");
+      const pesan = document.getElementById("txtPesan");
+
       document.querySelectorAll(".error-msg").forEach((el) => el.remove());
-      [txtNama, txtEmail, txtPesan].forEach((el) => (el.style.border = ""));
+      [nama, email, pesan].forEach((el) => (el.style.border = ""));
       let isValid = true;
 
-      if (nama.length < 3) {
-        showError(txtNama, "Nama minimal 3 huruf dan tidak boleh kosong.");
+      if (nama.value.trim().length < 3) {
+        showError(nama, "Nama minimal 3 huruf dan tidak boleh kosong.");
         isValid = false;
-      } else if (!/^[A-Za-z\s]+$/.test(nama)) {
-        showError(txtNama, "Nama hanya boleh berisi huruf dan spasi.");
-        isValid = false;
-      }
-
-      if (email === "") {
-        showError(txtEmail, "Email wajib diisi.");
-        isValid = false;
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showError(txtEmail, "Format email tidak valid. Contoh: nama@mail.com");
+      } else if (!/^[A-Za-z\s]+$/.test(nama.value)) {
+        showError(nama, "Nama hanya boleh berisi huruf dan spasi.");
         isValid = false;
       }
 
-      if (pesan.length < 10) {
-        showError(txtPesan, "Pesan minimal 10 karakter agar lebih jelas.");
+      if (email.value.trim() === "") {
+        showError(email, "Email wajib diisi.");
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        showError(email, "Format email tidak valid. Contoh: nama@mail.com");
         isValid = false;
       }
 
-      if (!isValid) e.preventDefault();
-      else alert("Terima kasih, " + nama + "! Pesan Anda telah dikirim.");
+      if (pesan.value.trim().length < 10) {
+        showError(pesan, "Pesan minimal 10 karakter agar lebih jelas.");
+        isValid = false;
+      }
+
+      if (!isValid) {
+        e.preventDefault();
+      } else {
+        alert("Terima kasih, " + nama.value + "!\nPesan Anda telah dikirim.");
+      }
     });
   }
 
@@ -69,8 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
     small.style.marginTop = "4px";
     small.style.flexBasis = "100%";
     small.dataset.forId = inputElement.id;
-    if (inputElement.nextSibling) label.insertBefore(small, inputElement.nextSibling);
-    else label.appendChild(small);
+    if (inputElement.nextSibling) {
+      label.insertBefore(small, inputElement.nextSibling);
+    } else {
+      label.appendChild(small);
+    }
     inputElement.style.border = "1px solid red";
     alignErrorMessage(small, inputElement);
   }
@@ -96,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const target = document.getElementById(small.dataset.forId);
       if (target) alignErrorMessage(small, target);
     });
-    applyResponsiveLayout();
   });
 
   function setupCharCountLayout() {
@@ -104,7 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!label) return;
     let wrapper = label.querySelector('[data-wrapper="pesan-wrapper"]');
     const span = label.querySelector("span");
-    if (!span || !txtPesan || !charCount) return;
+    const textarea = document.getElementById("txtPesan");
+    const counter = document.getElementById("charCount");
+    if (!span || !textarea || !counter) return;
     if (!wrapper) {
       wrapper = document.createElement("div");
       wrapper.dataset.wrapper = "pesan-wrapper";
@@ -112,14 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
       wrapper.style.flex = "1";
       wrapper.style.display = "flex";
       wrapper.style.flexDirection = "column";
-      label.insertBefore(wrapper, txtPesan);
-      wrapper.appendChild(txtPesan);
-      wrapper.appendChild(charCount);
-      txtPesan.style.width = "100%";
-      txtPesan.style.boxSizing = "border-box";
-      charCount.style.color = "#555";
-      charCount.style.fontSize = "14px";
-      charCount.style.marginTop = "4px";
+      label.insertBefore(wrapper, textarea);
+      wrapper.appendChild(textarea);
+      wrapper.appendChild(counter);
+      textarea.style.width = "100%";
+      textarea.style.boxSizing = "border-box";
+      counter.style.color = "#555";
+      counter.style.fontSize = "14px";
+      counter.style.marginTop = "4px";
     }
     applyResponsiveLayout();
   }
@@ -128,47 +134,40 @@ document.addEventListener("DOMContentLoaded", function () {
     const label = document.querySelector('label[for="txtPesan"]');
     const span = label?.querySelector("span");
     const wrapper = label?.querySelector('[data-wrapper="pesan-wrapper"]');
-    if (!label || !span || !wrapper || !charCount) return;
+    const counter = document.getElementById("charCount");
+    if (!label || !span || !wrapper || !counter) return;
     const isMobile = window.matchMedia("(max-width: 600px)").matches;
     if (isMobile) {
       label.style.display = "flex";
       label.style.flexDirection = "column";
       label.style.alignItems = "flex-start";
-      label.style.width = "100%";
       span.style.minWidth = "auto";
       span.style.textAlign = "left";
       span.style.paddingRight = "0";
-      span.style.flexShrink = "0";
       span.style.marginBottom = "4px";
-      wrapper.style.flex = "1";
       wrapper.style.display = "flex";
       wrapper.style.flexDirection = "column";
-      charCount.style.alignSelf = "flex-end";
-      charCount.style.width = "auto";
+      counter.style.alignSelf = "flex-end";
     } else {
       label.style.display = "flex";
       label.style.flexDirection = "row";
       label.style.alignItems = "baseline";
-      label.style.width = "100%";
       span.style.minWidth = "180px";
       span.style.textAlign = "right";
       span.style.paddingRight = "16px";
-      span.style.flexShrink = "0";
       span.style.marginBottom = "0";
-      wrapper.style.flex = "1";
       wrapper.style.display = "flex";
       wrapper.style.flexDirection = "column";
-      charCount.style.alignSelf = "flex-end";
-      charCount.style.width = "auto";
+      counter.style.alignSelf = "flex-end";
     }
   }
 
-  setupCharCountLayout();
-
   if (txtPesan && charCount) {
+    setupCharCountLayout();
     txtPesan.addEventListener("input", function () {
       const panjang = this.value.length;
       charCount.textContent = panjang + "/200 karakter";
     });
+    window.addEventListener("resize", applyResponsiveLayout);
   }
 });
