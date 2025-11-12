@@ -18,6 +18,7 @@
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
                 <li><a href="#ipk">IPK</a></li>
+                <li><a href="#formProfil">Pendaftaran</a></li>
                 <li><a href="#Contact">Kontak</a></li>
             </ul>
         </nav>
